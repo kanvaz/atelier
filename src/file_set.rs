@@ -1,4 +1,3 @@
-extern crate rustc_serialize;
 use rustc_serialize::json;
 
 //TODO: Why can't we use Decodable/Encodable on &str

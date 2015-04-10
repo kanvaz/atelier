@@ -1,5 +1,5 @@
 [package]
-name = "git-store"
+name = "git-grid"
 version = "0.0.1"
 authors = ["Christoph Burgdorf <christoph.burgdorf@bvsn.org>"]
 
@@ -7,7 +7,4 @@ authors = ["Christoph Burgdorf <christoph.burgdorf@bvsn.org>"]
 clap = "*"
 uuid = "*"
 readext = "*"
-
-[dependencies.rustc-serialize]
-git = "https://github.com/andersk/rustc-serialize.git"
-branch = "io-error"
+rustc-serialize = "*"
