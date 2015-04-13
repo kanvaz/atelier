@@ -1,5 +1,5 @@
 [root]
-name = "git-grid"
+name = "atelier"
 version = "0.0.1"
 dependencies = [
  "clap 0.5.14 (registry+https://github.com/rust-lang/crates.io-index)",
