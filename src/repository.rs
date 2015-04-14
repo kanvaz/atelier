@@ -8,6 +8,7 @@ use readext::ReadExt;
 
 #[derive(Debug)]
 pub struct Repository {
+    pub id: String,
     pub path: String
 }
 
@@ -16,6 +17,12 @@ static BLACKLIST: [&'static str; 2] = [".git", ".DS_Store"];
 
 impl Repository {
 
+    pub fn new (id: &str, path: &str) -> Repository {
+        Repository {
+            id: id.to_owned(),
+            path: path.to_owned()
+        }
+    }
 
     pub fn stage_all (&self) -> String {
         let output = Command::new("git")

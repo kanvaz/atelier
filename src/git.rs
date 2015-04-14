@@ -3,12 +3,13 @@ use std::io::Error;
 use repository::Repository;
 use std::borrow::ToOwned;
 
-pub fn init (name: &str) -> Result<Repository, Error> {
+pub fn init (id: &str, path: &str) -> Result<Repository, Error> {
     Command::new("git")
             .arg("init")
-            .arg(name)
+            .arg(path)
             .output()
             .map(|_| Repository {
-                path: name.to_owned()
+                id: id.to_owned(),
+                path: path.to_owned()
             })
 }

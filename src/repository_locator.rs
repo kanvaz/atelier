@@ -12,10 +12,12 @@ static REPO_PREFIX :&'static str = "TEMP_REP_";
 pub fn get_repository_handle (id: RepositoryState) -> Repository {
     match id {
         RepositoryState::NonExisting => {
-            git::init(&generate_path(&Uuid::new_v4().to_simple_string())).unwrap()
+            let id = &Uuid::new_v4().to_simple_string();
+            git::init(id, &generate_path(id)).unwrap()
         },
         RepositoryState::Existing(id) => {
             Repository {
+                id: id.to_string(),
                 path: generate_path(id)
             }
         }
