@@ -5,8 +5,9 @@ use std::fs::{self, File};
 use std::io::{Write};
 use file_set::FileData;
 use readext::ReadExt;
+use rustc_serialize::json;
 
-#[derive(Debug)]
+#[derive(Debug, RustcDecodable, RustcEncodable)]
 pub struct Repository {
     pub id: String,
     pub path: String
@@ -16,6 +17,14 @@ pub struct Repository {
 static BLACKLIST: [&'static str; 2] = [".git", ".DS_Store"];
 
 impl Repository {
+
+    pub fn to_json (&self) -> String {
+        format!("{}", json::as_json(&self))
+    }
+
+    pub fn to_pretty_json (&self) -> String {
+        format!("{}", json::as_pretty_json(&self))
+    }
 
     pub fn new (id: &str, path: &str) -> Repository {
         Repository {
